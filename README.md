@@ -24,12 +24,30 @@ gh extension install rm3l/gh-dev-branch
 ## Usage
 
 ```bash
-❯ gh gh-dev-branch -h
+❯ gh dev-branch -h
 
 Usage: gh dev-branch <issue> [options]
 Options: 
   -repo string
         repository to use for finding the issue
+```
+
+### Examples
+
+```shell
+# Inside the upstream rm3l/maoni repo:
+❯ gh dev-branch 294
+
+294-Could-not-find-unspecified-when-importing-transitive-dependencies
+```
+
+Or
+
+```shell
+# Inside any other folder:
+❯ gh dev-branch 9004 -repo keycloak/keycloak
+
+9004-Access-Token-claims-not-imported-using-OpenID-Connect-v1.0-Identity-Provider-Attribute-Importer-Mappers
 ```
 
 ## Working with the source code
