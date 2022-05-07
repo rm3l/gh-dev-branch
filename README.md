@@ -23,7 +23,7 @@ gh extension install rm3l/gh-dev-branch
 
 ## Usage
 
-```bash
+```
 ❯ gh dev-branch -h
 
 Usage: gh dev-branch <issue> [options]
@@ -35,7 +35,7 @@ Options:
 ### Examples
 
 ```shell
-# Inside the upstream rm3l/maoni repo
+# Using the current directory. Base repo is determined from the current Git repository
 ❯ gh dev-branch 294
 294-could-not-find-unspecified-when-importing-transitive-dependencies
 
@@ -47,9 +47,9 @@ Switched to a new branch '294-could-not-find-unspecified-when-importing-transiti
 Or
 
 ```shell
-# Inside any other folder
-❯ gh dev-branch 9004 -repo keycloak/keycloak
-9004-access-token-claims-not-imported-using-openid-connect-v1.0-identity-provider-attribute-importer-mappers
+# Using an issue from any other GitHub repo
+❯ gh dev-branch 9792 -repo openwrt/openwrt
+9792-feature-request-deterministic-configuration-export
 ```
 
 ## Working with the source code
