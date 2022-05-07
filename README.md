@@ -37,7 +37,6 @@ Options:
 ```shell
 # Inside the upstream rm3l/maoni repo:
 ❯ gh dev-branch 294
-
 294-Could-not-find-unspecified-when-importing-transitive-dependencies
 ```
 
@@ -46,7 +45,6 @@ Or
 ```shell
 # Inside any other folder:
 ❯ gh dev-branch 9004 -repo keycloak/keycloak
-
 9004-Access-Token-claims-not-imported-using-OpenID-Connect-v1.0-Identity-Provider-Attribute-Importer-Mappers
 ```
 
