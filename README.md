@@ -76,14 +76,14 @@ go build && gh dev-branch <my-issue-number>
 Contributions and issue reporting are more than welcome. So to help out, do feel free to fork this repo and open up a pull request.
 I'll review and merge your changes as quickly as possible.
 
-You can use [GitHub issues](https://github.com/rm3l/dev-branch/issues) to report bugs.
+You can use [GitHub issues](https://github.com/rm3l/gh-dev-branch/issues) to report bugs.
 However, please make sure your description is clear enough and has sufficient instructions to be able to reproduce the issue.
 
 ## Developed by
 
 * Armel Soro
     * [keybase.io/rm3l](https://keybase.io/rm3l)
-    * [rm3l.org](https://rm3l.org) - &lt;armel+dev-branch@rm3l.org&gt; - [@rm3l](https://twitter.com/rm3l)
+    * [rm3l.org](https://rm3l.org) - &lt;armel+gh-dev-branch@rm3l.org&gt; - [@rm3l](https://twitter.com/rm3l)
     * [paypal.me/rm3l](https://paypal.me/rm3l)
     * [coinbase.com/rm3l](https://www.coinbase.com/rm3l)
 
