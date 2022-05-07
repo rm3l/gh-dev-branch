@@ -37,10 +37,11 @@ Options:
 ```shell
 # Inside the upstream rm3l/maoni repo
 ❯ gh dev-branch 294
-294-Could-not-find-unspecified-when-importing-transitive-dependencies
+294-could-not-find-unspecified-when-importing-transitive-dependencies
+
 # or you can use the result in other commands, like to create and switch to that new branch
 ❯ git switch -c `gh dev-branch 294`     
-Switched to a new branch '294-Could-not-find-unspecified-when-importing-transitive-dependencies'
+Switched to a new branch '294-could-not-find-unspecified-when-importing-transitive-dependencies'
 ```
 
 Or
@@ -48,7 +49,7 @@ Or
 ```shell
 # Inside any other folder
 ❯ gh dev-branch 9004 -repo keycloak/keycloak
-9004-Access-Token-claims-not-imported-using-OpenID-Connect-v1.0-Identity-Provider-Attribute-Importer-Mappers
+9004-access-token-claims-not-imported-using-openid-connect-v1.0-identity-provider-attribute-importer-mappers
 ```
 
 ## Working with the source code
