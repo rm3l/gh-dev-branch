@@ -8,7 +8,7 @@ import (
 
 const _replacementCharacter = "-"
 
-var _regexp = regexp.MustCompile("[^A-Za-z0-9]+")
+var _regexp = regexp.MustCompile("[^A-Za-z0-9.]+")
 
 func GenerateName(index int, title string) string {
 	generatedName := _regexp.ReplaceAllString(fmt.Sprintf("%d-%s", index, title), _replacementCharacter)
