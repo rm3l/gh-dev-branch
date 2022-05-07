@@ -11,6 +11,9 @@ const _replacementCharacter = "-"
 
 var _regexp = regexp.MustCompile("[^A-Za-z0-9.]+")
 
+// GenerateName generates a new branch name off of the identifier and title specified.
+// Both the identifier and title must not be blank.
+// Leading hyphens (prefix and suffix) are removed from the name returned.
 func GenerateName(id string, title string) (string, error) {
 	if id == "" || strings.TrimSpace(id) == "" {
 		return "", errors.New("id must not be blank")
