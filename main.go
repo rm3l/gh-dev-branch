@@ -1,26 +1,58 @@
 package main
 
 import (
+	"flag"
 	"fmt"
+	"github.com/rm3l/gh-dev-branch/pkg/branch"
+	"log"
+	"os"
+	"strconv"
 
-	"github.com/cli/go-gh"
+	"github.com/rm3l/gh-dev-branch/pkg/issue"
 )
 
 func main() {
-	fmt.Println("hi world, this is the gh-dev-branch extension!")
-	client, err := gh.RESTClient(nil)
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-	response := struct {Login string}{}
-	err = client.Get("user", &response)
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-	fmt.Printf("running as %s\n", response.Login)
-}
 
-// For more examples of using go-gh, see:
-// https://github.com/cli/go-gh/blob/trunk/example_gh_test.go
+	var repo string
+
+	flag.StringVar(&repo, "repo", "", "repository to use for finding the issue")
+
+	flag.Usage = func() {
+		//goland:noinspection GoUnhandledErrorResult
+		fmt.Fprintln(os.Stderr, "Usage: gh dev-branch <issue> [options]")
+		fmt.Println("Options: ")
+		flag.PrintDefaults()
+	}
+	if len(os.Args) < 2 {
+		//goland:noinspection GoUnhandledErrorResult
+		fmt.Fprintln(os.Stderr, "missing issue")
+		flag.Usage()
+		os.Exit(1)
+	}
+
+	var issueNum int
+	iss := os.Args[1]
+	if iss == "-h" || iss == "-help" || iss == "--help" {
+		flag.Usage()
+		os.Exit(1)
+	} else {
+		var err error
+		issueNum, err = strconv.Atoi(iss)
+		if err != nil {
+			//goland:noinspection GoUnhandledErrorResult
+			fmt.Fprintln(os.Stderr, "issue must be a number")
+			os.Exit(1)
+		}
+
+		// Ignore errors since flag.CommandLine is set for ExitOnError.
+		_ = flag.CommandLine.Parse(os.Args[2:])
+	}
+
+	issueInfo, err := issue.Lookup(os.Stderr, repo, issueNum)
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	branchName := branch.GenerateName(issueInfo.Number, issueInfo.Title)
+	fmt.Println(branchName)
+}
