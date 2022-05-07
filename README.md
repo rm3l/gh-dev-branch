@@ -5,9 +5,9 @@
 [![CodeQL Analysis](https://github.com/rm3l/gh-dev-branch/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/rm3l/gh-dev-branch/actions/workflows/codeql-analysis.yml)
 [![Go Report Card](https://goreportcard.com/badge/github.com/rm3l/gh-dev-branch)](https://goreportcard.com/report/github.com/rm3l/gh-dev-branch)
 
-> GitHub CLI extension to generate branch names off of issues.
+> GitHub CLI extension to generate meaningful branch names off of issues.
 
-This is a simple extension that helps generate names for branches as soon as you want to start working on a given issue.
+This is a simple extension that helps generate meaningful names for branches as soon as you want to start working on a given issue.
 
 Think of it as the CLI counterpart for the beta feature of development branches that can be created in the GitHub UI,
 as documented here: https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-a-branch-for-an-issue 
@@ -35,15 +35,18 @@ Options:
 ### Examples
 
 ```shell
-# Inside the upstream rm3l/maoni repo:
+# Inside the upstream rm3l/maoni repo
 ❯ gh dev-branch 294
 294-Could-not-find-unspecified-when-importing-transitive-dependencies
+# or you can use the result in other commands, like to create and switch to that new branch
+❯ git switch -c `gh dev-branch 294`     
+Switched to a new branch '294-Could-not-find-unspecified-when-importing-transitive-dependencies'
 ```
 
 Or
 
 ```shell
-# Inside any other folder:
+# Inside any other folder
 ❯ gh dev-branch 9004 -repo keycloak/keycloak
 9004-Access-Token-claims-not-imported-using-OpenID-Connect-v1.0-Identity-Provider-Attribute-Importer-Mappers
 ```
