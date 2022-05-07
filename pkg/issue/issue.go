@@ -23,8 +23,10 @@ func Lookup(w io.Writer, repo string, issue int) (Info, error) {
 	if err != nil {
 		return issueInfo, err
 	}
-	//goland:noinspection GoUnhandledErrorResult
-	fmt.Fprintln(w, stdErr.String())
+	if stdErrStr := stdErr.String(); stdErrStr != "" {
+		//goland:noinspection GoUnhandledErrorResult
+		fmt.Fprintln(w, stdErrStr)
+	}
 	err = json.Unmarshal(stdOut.Bytes(), &issueInfo)
 	return issueInfo, err
 }
