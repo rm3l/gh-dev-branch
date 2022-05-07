@@ -53,6 +53,9 @@ func main() {
 		log.Fatalln(err)
 	}
 
-	branchName := branch.GenerateName(issueInfo.Number, issueInfo.Title)
+	branchName, err := branch.GenerateName(issueInfo.Number, issueInfo.Title)
+	if err != nil {
+		log.Fatalln(err)
+	}
 	fmt.Println(branchName)
 }
