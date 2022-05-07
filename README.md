@@ -7,6 +7,11 @@
 
 > GitHub CLI extension to generate branch names off of issues.
 
+This is a simple extension that helps generate names for branches as soon as you want to start working on a given issue.
+
+Think of it as the CLI counterpart for the beta feature of development branches that can be created in the GitHub UI,
+as documented here: https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-a-branch-for-an-issue 
+
 ## Installation
 
 - Install the `gh` CLI. See [https://github.com/cli/cli#installation](https://github.com/cli/cli#installation) for further details.
