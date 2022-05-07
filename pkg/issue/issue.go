@@ -1,32 +1,12 @@
 package issue
 
-import (
-	"encoding/json"
-	"fmt"
-	"github.com/cli/go-gh"
-	"io"
-	"strconv"
-)
+import "io"
 
 type Info struct {
-	Number int    `json:"number"`
-	Title  string `json:"title"`
+	Id    string
+	Title string
 }
 
-func Lookup(w io.Writer, repo string, issue int) (Info, error) {
-	args := []string{"issue", "view", strconv.Itoa(issue), "--json", "number,title"}
-	if repo != "" {
-		args = append(args, "-R", repo)
-	}
-	var issueInfo Info
-	stdOut, stdErr, err := gh.Exec(args...)
-	if err != nil {
-		return issueInfo, err
-	}
-	if stdErrStr := stdErr.String(); stdErrStr != "" {
-		//goland:noinspection GoUnhandledErrorResult
-		fmt.Fprintln(w, stdErrStr)
-	}
-	err = json.Unmarshal(stdOut.Bytes(), &issueInfo)
-	return issueInfo, err
+type Finder interface {
+	FindById(w io.Writer, repo string, issue string) (Info, error)
 }

@@ -7,7 +7,7 @@ import (
 
 func TestGenerateName(t *testing.T) {
 	type args struct {
-		num   int
+		id    string
 		title string
 	}
 	for _, tt := range []struct {
@@ -18,27 +18,45 @@ func TestGenerateName(t *testing.T) {
 		want    string
 	}{
 		{
-			name: "negative index",
+			name: "id empty",
 			args: args{
-				num:   -1,
+				id:    "",
 				title: "a-title",
 			},
 			want:    "",
 			wantErr: true,
 		},
 		{
-			name: "zero index",
+			name: "id blank",
 			args: args{
-				num:   0,
+				id:    "       ",
 				title: "a-title",
 			},
 			want:    "",
 			wantErr: true,
+		},
+		{
+			name: "id starting with an hyphen -",
+			args: args{
+				id:    "-1",
+				title: "a-title",
+			},
+			want:    "1-a-title",
+			wantErr: false,
+		},
+		{
+			name: "any other id",
+			args: args{
+				id:    "myId",
+				title: "a-title",
+			},
+			want:    "myid-a-title",
+			wantErr: false,
 		},
 		{
 			name: "empty title",
 			args: args{
-				num:   33,
+				id:    "33",
 				title: "",
 			},
 			want:    "",
@@ -47,7 +65,7 @@ func TestGenerateName(t *testing.T) {
 		{
 			name: "blank title",
 			args: args{
-				num:   33,
+				id:    "33",
 				title: "   ",
 			},
 			want:    "",
@@ -56,7 +74,7 @@ func TestGenerateName(t *testing.T) {
 		{
 			name: "dot title",
 			args: args{
-				num:   33,
+				id:    "33",
 				title: ".",
 			},
 			want:    "",
@@ -65,7 +83,7 @@ func TestGenerateName(t *testing.T) {
 		{
 			name: "branch name should not end with replacement if title already ends with it",
 			args: args{
-				num:   1,
+				id:    "1",
 				title: "-",
 			},
 			want:    "1",
@@ -74,7 +92,7 @@ func TestGenerateName(t *testing.T) {
 		{
 			name: "branch name should not end with replacement if title already ends with it",
 			args: args{
-				num:   1,
+				id:    "1",
 				title: "something-ending-with-hyphen-",
 			},
 			want:    "1-something-ending-with-hyphen",
@@ -83,7 +101,7 @@ func TestGenerateName(t *testing.T) {
 		{
 			name: "branch name should not have non-alphanumeric character",
 			args: args{
-				num:   777,
+				id:    "777",
 				title: "[Feature request] an awesome feature for `tool`",
 			},
 			want:    "777-feature-request-an-awesome-feature-for-tool",
@@ -92,7 +110,7 @@ func TestGenerateName(t *testing.T) {
 		{
 			name: "ending dot should be ignored",
 			args: args{
-				num:   1234,
+				id:    "1234",
 				title: "Bug when running something.",
 			},
 			want:    "1234-bug-when-running-something",
@@ -101,7 +119,7 @@ func TestGenerateName(t *testing.T) {
 		{
 			name: "branch name should be all lowercase",
 			args: args{
-				num:   2345,
+				id:    "2345",
 				title: "THIS IS AN IMPROVEMENT SUGGESTION :-) !!!",
 			},
 			want:    "2345-this-is-an-improvement-suggestion",
@@ -109,7 +127,7 @@ func TestGenerateName(t *testing.T) {
 		},
 	} {
 		t.Run(tt.name, func(t *testing.T) {
-			got, err := GenerateName(tt.num, tt.title)
+			got, err := GenerateName(tt.id, tt.title)
 			if (err != nil) != tt.wantErr {
 				t.Errorf("got err: %v, but wanted err set to %v", err, tt.wantErr)
 			}

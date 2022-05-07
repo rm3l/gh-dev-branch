@@ -4,11 +4,9 @@ import (
 	"flag"
 	"fmt"
 	"github.com/rm3l/gh-dev-branch/pkg/branch"
+	"github.com/rm3l/gh-dev-branch/pkg/issue"
 	"log"
 	"os"
-	"strconv"
-
-	"github.com/rm3l/gh-dev-branch/pkg/issue"
 )
 
 func main() {
@@ -30,30 +28,22 @@ func main() {
 		os.Exit(1)
 	}
 
-	var issueNum int
 	iss := os.Args[1]
 	if iss == "-h" || iss == "-help" || iss == "--help" {
 		flag.Usage()
 		os.Exit(1)
 	} else {
-		var err error
-		issueNum, err = strconv.Atoi(iss)
-		if err != nil {
-			//goland:noinspection GoUnhandledErrorResult
-			fmt.Fprintln(os.Stderr, "issue must be a number")
-			os.Exit(1)
-		}
-
 		// Ignore errors since flag.CommandLine is set for ExitOnError.
 		_ = flag.CommandLine.Parse(os.Args[2:])
 	}
 
-	issueInfo, err := issue.Lookup(os.Stderr, repo, issueNum)
+	ghIssueFinder := issue.NewGHIssueFinder()
+	issueInfo, err := ghIssueFinder.FindById(os.Stderr, repo, iss)
 	if err != nil {
 		log.Fatalln(err)
 	}
 
-	branchName, err := branch.GenerateName(issueInfo.Number, issueInfo.Title)
+	branchName, err := branch.GenerateName(issueInfo.Id, issueInfo.Title)
 	if err != nil {
 		log.Fatalln(err)
 	}

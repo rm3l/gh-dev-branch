@@ -11,9 +11,9 @@ const _replacementCharacter = "-"
 
 var _regexp = regexp.MustCompile("[^A-Za-z0-9.]+")
 
-func GenerateName(index int, title string) (string, error) {
-	if index <= 0 {
-		return "", fmt.Errorf("invalid negative or zero index: %d", index)
+func GenerateName(id string, title string) (string, error) {
+	if id == "" || strings.TrimSpace(id) == "" {
+		return "", errors.New("id must not be blank")
 	}
 	if title == "" || strings.TrimSpace(title) == "" {
 		return "", errors.New("title must not be blank")
@@ -24,7 +24,7 @@ func GenerateName(index int, title string) (string, error) {
 	}
 	generatedName := strings.ToLower(
 		_regexp.ReplaceAllString(
-			fmt.Sprintf("%d-%s", index, titleWithoutDotSuffix),
+			fmt.Sprintf("%s-%s", id, titleWithoutDotSuffix),
 			_replacementCharacter))
-	return strings.TrimSuffix(generatedName, _replacementCharacter), nil
+	return strings.TrimPrefix(strings.TrimSuffix(generatedName, _replacementCharacter), _replacementCharacter), nil
 }
