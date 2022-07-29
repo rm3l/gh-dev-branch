@@ -58,7 +58,7 @@ Or
 - Clone the repository and install the local version.
 
 ```bash
-cd dev-branch
+git clone https://github.com/rm3l/gh-dev-branch && cd gh-dev-branch
 
 # Install the local version
 gh extension install .
