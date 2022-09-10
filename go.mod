@@ -4,7 +4,7 @@ go 1.18
 
 require (
 	github.com/cli/go-gh v0.1.0
-	github.com/google/go-cmp v0.5.8
+	github.com/google/go-cmp v0.5.9
 )
 
 require (
