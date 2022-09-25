@@ -54,21 +54,33 @@ Or
 
 ## Working with the source code
 
-- If not done already, download and install [Go](https://go.dev/doc/install) to build the project. This project has been built with Go 1.18.
-- Clone the repository and install the local version.
+1. Clone the repository:
+
+```
+git clone https://github.com/rm3l/gh-dev-branch
+cd gh-dev-branch
+```
+
+2. Download and install [Go](https://go.dev/doc/install) to build the project.
+   Or if you are already using the [asdf](https://asdf-vm.com/) version manager, you can just run `asdf install` to install all the necessary tools (declared in the [.tool-versions](.tool-versions) file).
+
+3. Install the local version of this extension; `gh` symlinks to your local source code directory.
 
 ```bash
-git clone https://github.com/rm3l/gh-dev-branch && cd gh-dev-branch
-
 # Install the local version
 gh extension install .
+```
 
-# At this point, you can start using it
-gh dev-branch <my-issue-number>
+4. At this point, you can start using it:
 
-# To see changes in the code as you develop,
-# simply build and use the extension:
-go build && gh dev-branch <my-issue-number>
+```bash
+gh dev-branch <my-issue-number> [-repo <my_org/my_repo>]
+```
+
+5. To see changes in the code as you develop, simply build and use the extension
+
+```bash
+go build && gh dev-branch <my-issue-number> [-repo <my_org/my_repo>]
 ```
 
 ## Contribution Guidelines
