@@ -3,7 +3,7 @@ module github.com/rm3l/gh-dev-branch
 go 1.19
 
 require (
-	github.com/cli/go-gh v1.2.0
+	github.com/cli/go-gh v1.2.1
 	github.com/google/go-cmp v0.5.9
 )
 
