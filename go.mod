@@ -1,6 +1,6 @@
 module github.com/rm3l/gh-dev-branch
 
-go 1.19
+go 1.20
 
 require (
 	github.com/cli/go-gh v1.2.1
