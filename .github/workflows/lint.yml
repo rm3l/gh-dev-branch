@@ -25,7 +25,7 @@ jobs:
         id: golangci_lint_version
         run: |
           golangCiLintVersion=$(grep '^golangci-lint ' .tool-versions | awk '{print $2}')
-          echo "::set-output name=golangCiLintVersion::${golangCiLintVersion}"
+          echo "golangCiLintVersion=${golangCiLintVersion}" >> $GITHUB_OUTPUT
 
       - name: golangci-lint
         uses: golangci/golangci-lint-action@v3.4.0

@@ -16,7 +16,7 @@ jobs:
         id: golang_version
         run: |
           golangVersion=$(grep '^golang ' .tool-versions | awk '{print $2}')
-          echo "::set-output name=golangVersion::${golangVersion}"
+          echo "golangVersion=${golangVersion}" >> $GITHUB_OUTPUT
 
       - uses: cli/gh-extension-precompile@v1
         with:
