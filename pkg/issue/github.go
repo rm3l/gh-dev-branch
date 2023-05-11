@@ -3,9 +3,10 @@ package issue
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/cli/go-gh"
 	"io"
 	"strconv"
+
+	"github.com/cli/go-gh/v2"
 )
 
 // GHIssueFinder is a struct type that implements the issue.Finder interface
