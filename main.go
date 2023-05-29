@@ -3,10 +3,11 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/rm3l/gh-dev-branch/pkg/branch"
-	"github.com/rm3l/gh-dev-branch/pkg/issue"
 	"log"
 	"os"
+
+	"github.com/rm3l/gh-dev-branch/pkg/branch"
+	"github.com/rm3l/gh-dev-branch/pkg/issue"
 )
 
 func main() {
