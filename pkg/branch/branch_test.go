@@ -8,11 +8,12 @@ import (
 
 func TestGenerateName(t *testing.T) {
 	type args struct {
-		id    string
-		title string
+		id     string
+		title  string
+		maxLen int
 	}
 	for _, tt := range []struct {
-		args
+		args args
 
 		name    string
 		wantErr bool
@@ -126,9 +127,39 @@ func TestGenerateName(t *testing.T) {
 			want:    "2345-this-is-an-improvement-suggestion",
 			wantErr: false,
 		},
+		{
+			name: "branch name should not exceed maxLen - negative max length",
+			args: args{
+				id:     "2345",
+				title:  "THIS IS AN IMPROVEMENT SUGGESTION :-) !!!",
+				maxLen: -10,
+			},
+			want:    "2345-this-is-an-improvement-suggestion",
+			wantErr: false,
+		},
+		{
+			name: "branch name should not exceed maxLen - zero max length",
+			args: args{
+				id:     "2345",
+				title:  "THIS IS AN IMPROVEMENT SUGGESTION :-) !!!",
+				maxLen: 0,
+			},
+			want:    "2345-this-is-an-improvement-suggestion",
+			wantErr: false,
+		},
+		{
+			name: "branch name should not exceed maxLen",
+			args: args{
+				id:     "2345",
+				title:  "THIS IS AN IMPROVEMENT SUGGESTION :-) !!!",
+				maxLen: 27,
+			},
+			want:    "2345-this-is-an-improvement",
+			wantErr: false,
+		},
 	} {
 		t.Run(tt.name, func(t *testing.T) {
-			got, err := GenerateName(tt.id, tt.title)
+			got, err := GenerateName(tt.args.id, tt.args.title, tt.args.maxLen)
 			if (err != nil) != tt.wantErr {
 				t.Errorf("got err: %v, but wanted err set to %v", err, tt.wantErr)
 			}

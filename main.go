@@ -13,8 +13,10 @@ import (
 func main() {
 
 	var repo string
+	var maxLen int
 
 	flag.StringVar(&repo, "repo", "", "repository to use for finding the issue")
+	flag.IntVar(&maxLen, "max-length", -1, "max length of generated branch name")
 
 	flag.Usage = func() {
 		//goland:noinspection GoUnhandledErrorResult
@@ -44,7 +46,7 @@ func main() {
 		log.Fatalln(err)
 	}
 
-	branchName, err := branch.GenerateName(issueInfo.Id, issueInfo.Title)
+	branchName, err := branch.GenerateName(issueInfo.Id, issueInfo.Title, maxLen)
 	if err != nil {
 		log.Fatalln(err)
 	}
