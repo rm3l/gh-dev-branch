@@ -27,7 +27,9 @@ gh extension install rm3l/gh-dev-branch
 ❯ gh dev-branch -h
 
 Usage: gh dev-branch <issue> [options]
-Options: 
+Options:
+  -max-length int
+        max length of generated branch name (default -1)
   -repo string
         repository to use for finding the issue
 ```
@@ -103,7 +105,7 @@ However, please make sure your description is clear enough and has sufficient in
 
     The MIT License (MIT)
 
-    Copyright (c) 2022 Armel Soro
+    Copyright (c) 2022-2023 Armel Soro
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
