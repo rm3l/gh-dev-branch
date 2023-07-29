@@ -1,5 +1,5 @@
-github.com/cli/go-gh/v2 v2.0.1 h1:W4L7C5xT9CwkcqTsUzBhFhRKGpek9oRtdDLku2Hku+E=
-github.com/cli/go-gh/v2 v2.0.1/go.mod h1:zWab1jRnJ0Ug8qRjsZHFk/Oq51ZWuhSxRL2FDUDgQWk=
+github.com/cli/go-gh/v2 v2.1.0 h1:JzYEJyv3VOoU+O9prmoAb3q4JvCwx8dGgLjJF992+18=
+github.com/cli/go-gh/v2 v2.1.0/go.mod h1:DwqlWB1TCBcKmDt/9/81EnlbGG7elLoevF4ypt5BnzE=
 github.com/cli/safeexec v1.0.1 h1:e/C79PbXF4yYTN/wauC4tviMxEV13BwljGj0N9j+N00=
 github.com/cli/safeexec v1.0.1/go.mod h1:Z/D4tTN8Vs5gXYHDCbaM1S/anmEDnJb1iW0+EJ5zx3Q=
 github.com/cli/shurcooL-graphql v0.0.3 h1:CtpPxyGDs136/+ZeyAfUKYmcQBjDlq5aqnrDCW5Ghh8=
@@ -19,4 +19,5 @@ github.com/thlib/go-timezone-local v0.0.0-20210907160436-ef149e42d28e h1:Buzhfgf
 golang.org/x/net v0.7.0 h1:rJrUqqhjsgNp7KqAIc25s9pZnjU7TUcSY7HcVZjdn1g=
 golang.org/x/sys v0.8.0 h1:EBmGv8NaZBZTWvrbjNoL6HVt+IVy3QDQpJs7VRIw3tU=
 golang.org/x/term v0.5.0 h1:n2a8QNdAb0sZNpU9R1ALUXBbY+w51fCQDN+7EdxNBsY=
+golang.org/x/text v0.7.0 h1:4BRB4x83lYWy72KwLD/qYDuTu7q9PjSagHvijDw7cLo=
 gopkg.in/yaml.v3 v3.0.1 h1:fxVm/GzAzEWqLHuvctI91KS9hhNmmWOoWu0XTYJS7CA=
