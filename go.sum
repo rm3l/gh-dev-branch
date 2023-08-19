@@ -1,5 +1,5 @@
-github.com/cli/go-gh/v2 v2.1.0 h1:JzYEJyv3VOoU+O9prmoAb3q4JvCwx8dGgLjJF992+18=
-github.com/cli/go-gh/v2 v2.1.0/go.mod h1:DwqlWB1TCBcKmDt/9/81EnlbGG7elLoevF4ypt5BnzE=
+github.com/cli/go-gh/v2 v2.2.0 h1:Mp5WYfe5bjSSfhygV/KjmPrBctAnEgAtBEd37C/2Mao=
+github.com/cli/go-gh/v2 v2.2.0/go.mod h1:DwqlWB1TCBcKmDt/9/81EnlbGG7elLoevF4ypt5BnzE=
 github.com/cli/safeexec v1.0.1 h1:e/C79PbXF4yYTN/wauC4tviMxEV13BwljGj0N9j+N00=
 github.com/cli/safeexec v1.0.1/go.mod h1:Z/D4tTN8Vs5gXYHDCbaM1S/anmEDnJb1iW0+EJ5zx3Q=
 github.com/cli/shurcooL-graphql v0.0.3 h1:CtpPxyGDs136/+ZeyAfUKYmcQBjDlq5aqnrDCW5Ghh8=
