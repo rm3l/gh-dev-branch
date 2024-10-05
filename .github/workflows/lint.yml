@@ -28,7 +28,7 @@ jobs:
           echo "golangCiLintVersion=${golangCiLintVersion}" >> $GITHUB_OUTPUT
 
       - name: golangci-lint
-        uses: golangci/golangci-lint-action@v6.1.0
+        uses: golangci/golangci-lint-action@v6.1.1
         with:
           # Required: the version of golangci-lint is required and must be specified without patch version: we always use the latest patch version.
           version: v${{ steps.golangci_lint_version.outputs.golangCiLintVersion }}
