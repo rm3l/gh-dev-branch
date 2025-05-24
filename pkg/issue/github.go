@@ -41,8 +41,7 @@ func (g GHIssueFinder) FindById(w io.Writer, repo string, id string) (Info, erro
 		return Info{}, err
 	}
 	if stdErrStr := stdErr.String(); stdErrStr != "" {
-		//goland:noinspection GoUnhandledErrorResult
-		fmt.Fprintln(w, stdErrStr)
+		_, _ = fmt.Fprintln(w, stdErrStr)
 	}
 	var issueInfo _GhIssueInfo
 	err = json.Unmarshal(stdOut.Bytes(), &issueInfo)
