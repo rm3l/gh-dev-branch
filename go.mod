@@ -1,9 +1,9 @@
 module github.com/rm3l/gh-dev-branch
 
-go 1.24
+go 1.25.0
 
 require (
-	github.com/cli/go-gh/v2 v2.12.2
+	github.com/cli/go-gh/v2 v2.13.0
 	github.com/google/go-cmp v0.7.0
 )
 
