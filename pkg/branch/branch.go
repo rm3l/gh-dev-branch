@@ -38,5 +38,5 @@ func GenerateName(id string, title string, maxLen int) (string, error) {
 	if utf8.RuneCountInString(generatedName) < maxLen {
 		return generatedName, nil
 	}
-	return string([]rune(generatedName)[:maxLen]), nil
+	return strings.TrimRight(string([]rune(generatedName)[:maxLen]), _replacementCharacter), nil
 }

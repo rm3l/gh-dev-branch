@@ -184,6 +184,16 @@ func TestGenerateName(t *testing.T) {
 			want:    "2345-this-is-an-improvement",
 			wantErr: false,
 		},
+		{
+			name: "branch name should not end with hyphen after truncation",
+			args: args{
+				id:     "2345",
+				title:  "THIS IS AN IMPROVEMENT SUGGESTION :-) !!!",
+				maxLen: 10,
+			},
+			want:    "2345-this",
+			wantErr: false,
+		},
 	} {
 		t.Run(tt.name, func(t *testing.T) {
 			got, err := GenerateName(tt.args.id, tt.args.title, tt.args.maxLen)
