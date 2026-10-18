@@ -128,6 +128,33 @@ func TestGenerateName(t *testing.T) {
 			wantErr: false,
 		},
 		{
+			name: "multiple trailing dots should be stripped",
+			args: args{
+				id:    "6993",
+				title: "Collect metrics for issues, pull requests, ...",
+			},
+			want:    "6993-collect-metrics-for-issues-pull-requests",
+			wantErr: false,
+		},
+		{
+			name: "dots within title should be replaced",
+			args: args{
+				id:    "42",
+				title: "Fix v2.0 regression",
+			},
+			want:    "42-fix-v2-0-regression",
+			wantErr: false,
+		},
+		{
+			name: "only dots title",
+			args: args{
+				id:    "33",
+				title: "...",
+			},
+			want:    "",
+			wantErr: true,
+		},
+		{
 			name: "branch name should not exceed maxLen - negative max length",
 			args: args{
 				id:     "2345",

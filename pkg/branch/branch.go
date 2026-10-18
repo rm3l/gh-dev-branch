@@ -10,7 +10,7 @@ import (
 
 const _replacementCharacter = "-"
 
-var _regexp = regexp.MustCompile("[^A-Za-z0-9.]+")
+var _regexp = regexp.MustCompile("[^A-Za-z0-9]+")
 
 // GenerateName generates a new branch name off of the identifier and title specified.
 // Both the identifier and title must not be blank.
@@ -22,7 +22,7 @@ func GenerateName(id string, title string, maxLen int) (string, error) {
 	if title == "" || strings.TrimSpace(title) == "" {
 		return "", errors.New("title must not be blank")
 	}
-	titleWithoutDotSuffix := strings.TrimSuffix(title, ".")
+	titleWithoutDotSuffix := strings.TrimRight(title, ".")
 	if titleWithoutDotSuffix == "" {
 		return "", fmt.Errorf("invalid title: %s", title)
 	}
